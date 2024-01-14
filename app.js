@@ -1,12 +1,22 @@
 const express = require("express");
-
+const ejs = require("ejs");
 const app = express();
-app.get("/", function (req, res) {
-  const blog = { id: 1, title: "Blog title", description: "Blog description" };
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 
-  res.send(blog);
+app.get("/", (req, res) => {
+  res.render("index");
 });
-const port = 3000;
+app.get("/add", (req, res) => {
+  res.render("add");
+});
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+app.get("/post", (req, res) => {
+  res.render("post");
+});
+const port = 5000;
 app.listen(port, () => {
   console.log("CleanBlog serverine bağlandık!");
 });
