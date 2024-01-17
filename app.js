@@ -30,6 +30,13 @@ app.post("/add", async (req, res) => {
   await BlogPost.create(req.body);
   res.redirect("/");
 });
+app.get("/post/:id", async (req, res) => {
+  console.log(req.params.id);
+  const blogPost = await BlogPost.findById(req.params.id);
+  res.render("post", {
+    blogPost,
+  });
+});
 const port = 5000;
 app.listen(port, () => {
   console.log("CleanBlog serverine bağlandık!");

@@ -27,7 +27,7 @@
         <% for (let i =0; i < blogPost.length; i++) { %>
         <div class="post-preview" 
           >
-          <a href="post.html">
+          <a href="/post/<%= blogPost[i]._id %>">
             <h2 class="post-title">
               <%= blogPost[i].title %>
             </h2>
